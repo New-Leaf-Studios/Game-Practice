@@ -1,6 +1,8 @@
 extends Sprite2D
 
+var direction: Vector2 = Vector2(1,1)
+var speed: int = 5
 
-# Called when the node enters the scene tree for the first time.
-func _physics_process() -> void:
-	rotate(0.1)
+func _physics_process(_delta: float) -> void:
+	direction = Input.get_vector("left", "right", "up", "down")
+		
