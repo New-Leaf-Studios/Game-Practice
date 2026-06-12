@@ -5,5 +5,5 @@
 [node name="Player" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(73, 57)
+position = Vector2(283, 320)
 texture = ExtResource("1_hqyvl")
