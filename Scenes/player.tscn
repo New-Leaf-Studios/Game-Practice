@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Script" uid="uid://bxugqnugtnuf1" path="res://player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cq6s2sjmfljlx" path="res://images/game sprite test.png" id="2_6t5aa"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_cvnsp")
+
+[node name="player" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(283, 320)
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("2_6t5aa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(283, 320)
+scale = Vector2(0.145, 0.145)
+zoom = Vector2(2, 2)
+limit_left = 0
+position_smoothing_enabled = true
