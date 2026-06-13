@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c17xik7hvxny4"]
+[gd_scene load_steps=4 format=3 uid="uid://c17xik7hvxny4"]
 
-[ext_resource type="Texture2D" uid="uid://duxyvok18ar57" path="res://icon.svg" id="1_hqyvl"]
 [ext_resource type="Script" uid="uid://bxugqnugtnuf1" path="res://player.gd" id="2_hqyvl"]
+[ext_resource type="Texture2D" uid="uid://cq6s2sjmfljlx" path="res://images/game sprite test.png" id="2_otv2m"]
+[ext_resource type="Texture2D" uid="uid://bp0dibilqda3q" path="res://images/test backround.webp" id="3_otv2m"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("2_hqyvl")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="player" type="Sprite2D" parent="Player"]
+z_index = 1
 position = Vector2(283, 320)
-texture = ExtResource("1_hqyvl")
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("2_otv2m")
+
+[node name="Camera2D" type="Camera2D" parent="Player/player"]
+limit_left = 0
+position_smoothing_enabled = true
+
+[node name="backround" type="Sprite2D" parent="."]
+position = Vector2(770.00006, 511)
+scale = Vector2(2.1291666, 2.1291666)
+texture = ExtResource("3_otv2m")
