@@ -1,25 +1,22 @@
-extends Node2D
+extends CharacterBody2D
 
 
 var direction: Vector2 = Vector2(1,1)
-var speed: int = 3
-var sprintSpeed: float = 5.5
+var speed: int = 180
+var sprintSpeed: float = 220
 
 func _physics_process(_delta: float) -> void:
 	direction = Input.get_vector("left", "right", "up", "down")
-	
-	if Input.is_action_pressed("dash"):
-		position += direction * sprintSpeed
+	velocity = direction * speed
+	animation()
+	move_and_slide()	
+
+func animation():
+	if direction:
+		$TestingTimothy.flip_h = direction.x > 0
+		if direction.x != 0:
+			$TestingTimothy.play("left")
+		else:
+			$TestingTimothy.animation = "up" if direction.y < 0 else "down"
 	else:
-		position += direction * speed
-	
-	if abs(direction.y) > abs(direction.x):
-		$player.play("down")
-	else:
-		$player.play("side")
-	
-	if direction.x >= 0.1:
-		$player.flip_h = true
-	elif direction.x <= -0.1:
-		$player.flip_h = false
-	
+		$TestingTimothy.frame = 0
