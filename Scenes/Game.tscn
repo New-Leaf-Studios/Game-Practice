@@ -6,7 +6,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="backround" type="Sprite2D" parent="."]
-position = Vector2(770.00006, 511)
+position = Vector2(768, 512)
 scale = Vector2(2.1291666, 2.1291666)
 texture = ExtResource("1_gl6un")
 

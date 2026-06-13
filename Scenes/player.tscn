@@ -34,7 +34,7 @@ limit_left = 0
 position_smoothing_enabled = true
 
 [node name="player" type="AnimatedSprite2D" parent="."]
-position = Vector2(372, 312)
+position = Vector2(286, 321)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_fkybt")
 animation = &"side"
