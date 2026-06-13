@@ -1,16 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=5 format=3 uid="uid://ckudr8chj1kgo"]
 
-[ext_resource type="Script" uid="uid://bxugqnugtnuf1" path="res://player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://bxugqnugtnuf1" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cq6s2sjmfljlx" path="res://images/game sprite test.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bdwje7y3qfrid" path="res://images/TTdown.png" id="2_vgqql"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkybt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vgqql")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6t5aa")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_cvnsp")
-
-[node name="player" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(283, 320)
-scale = Vector2(0.145, 0.145)
-texture = ExtResource("2_6t5aa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(283, 320)
@@ -18,3 +32,9 @@ scale = Vector2(0.145, 0.145)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 position_smoothing_enabled = true
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(372, 312)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"side"
