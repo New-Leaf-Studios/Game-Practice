@@ -44,13 +44,8 @@ zoom = Vector2(1.5, 1.5)
 limit_left = 0
 position_smoothing_enabled = true
 
-<<<<<<< HEAD
 [node name="TestingTimothy" type="AnimatedSprite2D" parent="."]
 position = Vector2(286, 321)
-=======
-[node name="player" type="AnimatedSprite2D" parent="."]
-position = Vector2(283, 322)
->>>>>>> f381cbc2e960bfca473b3d6169b3f19ada9bbeb1
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_fkybt")
 animation = &"up"
