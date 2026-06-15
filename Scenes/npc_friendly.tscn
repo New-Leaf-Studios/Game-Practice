@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxv3ppyoe5ikc"]
+[gd_scene load_steps=9 format=3 uid="uid://bxv3ppyoe5ikc"]
 
-[ext_resource type="Script" uid="uid://cvs2w1ybvv6ou" path="res://Scenes/npc.gd" id="1_xxsvc"]
-[ext_resource type="Texture2D" uid="uid://b0ojax2ksxhtw" path="res://images/test_npc_animation.png" id="2_xxsvc"]
+[ext_resource type="Script" uid="uid://cwahevmbw1fry" path="res://Scripts/npc_friendly.gd" id="1_hbx2o"]
+[ext_resource type="Texture2D" uid="uid://b0ojax2ksxhtw" path="res://images/test_npc_animation.png" id="1_k3qpd"]
+[ext_resource type="PackedScene" uid="uid://cfrhstdfuipsr" path="res://dialogue/dialogue_ui.tscn" id="3_1yo52"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6unj"]
-atlas = ExtResource("2_xxsvc")
+atlas = ExtResource("1_k3qpd")
 region = Rect2(0, 0, 548, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1ryf"]
-atlas = ExtResource("2_xxsvc")
+atlas = ExtResource("1_k3qpd")
 region = Rect2(548, 0, 548, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ig1v"]
@@ -60,8 +61,8 @@ size = Vector2(34, 44)
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1ryf"]
 radius = 55.0
 
-[node name="NPC" type="CharacterBody2D"]
-script = ExtResource("1_xxsvc")
+[node name="NPC_friendly" type="CharacterBody2D"]
+script = ExtResource("1_hbx2o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.07264957, 0.072649576)
@@ -78,3 +79,10 @@ shape = SubResource("CircleShape2D_h1ryf")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="DialogueUI" parent="." instance=ExtResource("3_1yo52")]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="DialogueUI" to="." method="_on_dialogue_ui_dialogue_finished"]

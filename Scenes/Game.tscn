@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c17xik7hvxny4"]
+[gd_scene load_steps=5 format=3 uid="uid://c17xik7hvxny4"]
 
 [ext_resource type="Texture2D" uid="uid://bnbxsm45cgeh0" path="res://images/grass_background_test.png" id="1_gl6un"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://Scenes/player.tscn" id="2_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://cnnfij8udtbin" path="res://Scenes/tree.tscn" id="3_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://bxv3ppyoe5ikc" path="res://Scenes/npc_friendly.tscn" id="4_kldst"]
 
 [node name="Game" type="Node2D"]
 
@@ -17,3 +18,6 @@ scale = Vector2(0.6015625, 0.6015625)
 
 [node name="Player" parent="." instance=ExtResource("2_j5yw3")]
 position = Vector2(154, 106)
+
+[node name="NPC_friendly" parent="." instance=ExtResource("4_kldst")]
+position = Vector2(211, 68)
