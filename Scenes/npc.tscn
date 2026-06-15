@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxv3ppyoe5ikc"]
+
+[ext_resource type="Script" uid="uid://cvs2w1ybvv6ou" path="res://Scenes/npc.gd" id="1_xxsvc"]
+[ext_resource type="Texture2D" uid="uid://b0ojax2ksxhtw" path="res://images/test_npc_animation.png" id="2_xxsvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6unj"]
+atlas = ExtResource("2_xxsvc")
+region = Rect2(0, 0, 548, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ryf"]
+atlas = ExtResource("2_xxsvc")
+region = Rect2(548, 0, 548, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ig1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6unj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ryf")
+}],
+"loop": true,
+"name": &"walk_e",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ryf")
+}],
+"loop": true,
+"name": &"walk_n",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ryf")
+}],
+"loop": true,
+"name": &"walk_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ryf")
+}],
+"loop": true,
+"name": &"walk_w",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6unj"]
+size = Vector2(34, 44)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1ryf"]
+radius = 55.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_xxsvc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.07264957, 0.072649576)
+sprite_frames = SubResource("SpriteFrames_1ig1v")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g6unj")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_h1ryf")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

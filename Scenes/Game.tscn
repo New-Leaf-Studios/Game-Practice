@@ -16,5 +16,4 @@ position = Vector2(52, 209)
 scale = Vector2(0.6015625, 0.6015625)
 
 [node name="Player" parent="." instance=ExtResource("2_j5yw3")]
-y_sort_enabled = true
 position = Vector2(154, 106)
