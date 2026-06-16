@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnnfij8udtbin"]
+
+[ext_resource type="Texture2D" uid="uid://b5oj57t37443g" path="res://Images/Terrain/tree_test.png" id="1_rsuno"]
+[ext_resource type="Script" uid="uid://pg8k5pdl78kc" path="res://Scripts/Object Code/tree.gd" id="2_l7sa7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsuno"]
+size = Vector2(52, 157)
+
+[node name="Tree" type="Sprite2D"]
+y_sort_enabled = true
+position = Vector2(0, 1)
+texture = ExtResource("1_rsuno")
+script = ExtResource("2_l7sa7")
+
+[node name="Tree_static_body" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tree_hitbox" type="CollisionShape2D" parent="Tree_static_body"]
+position = Vector2(0, 52.5)
+shape = SubResource("RectangleShape2D_rsuno")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-1, -1)
+rect = Rect2(-86, -191, 172, 329)
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
