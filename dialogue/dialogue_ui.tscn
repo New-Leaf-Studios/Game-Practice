@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfrhstdfuipsr"]
+[gd_scene load_steps=10 format=3 uid="uid://cfrhstdfuipsr"]
 
 [ext_resource type="Script" uid="uid://cpflqcnmbay5t" path="res://dialogue/dialogueplayer.gd" id="1_8lmct"]
 [ext_resource type="Texture2D" uid="uid://bonamhw64ew2x" path="res://images/chat_box.png" id="1_km8cd"]
-[ext_resource type="AudioStream" uid="uid://chy2g1upgycl5" path="res://Audio/gigachad_theme_remix.mp3" id="3_u0wqm"]
+[ext_resource type="AudioStream" uid="uid://duv64x7bv0xqg" path="res://Audio/test_sound1.mp3" id="3_brsfq"]
+[ext_resource type="AudioStream" uid="uid://1ydu0ev4hmtp" path="res://Audio/test_sound5.mp3" id="4_ct5x0"]
+[ext_resource type="AudioStream" uid="uid://dgsf7s651644l" path="res://Audio/test_sound3.mp3" id="5_vj71j"]
+[ext_resource type="AudioStream" uid="uid://calltckxoyv34" path="res://Audio/test_sound2.mp3" id="6_l1gmd"]
+[ext_resource type="AudioStream" uid="uid://c50bctrilfk4b" path="res://Audio/test_sound4.mp3" id="7_nniao"]
+[ext_resource type="AudioStream" uid="uid://rmvl62c2cq0l" path="res://Audio/test_sound6.mp3" id="8_ct5x0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bf2rb"]
+streams_count = 6
+stream_0/stream = ExtResource("3_brsfq")
+stream_1/stream = ExtResource("4_ct5x0")
+stream_2/stream = ExtResource("5_vj71j")
+stream_3/stream = ExtResource("6_l1gmd")
+stream_4/stream = ExtResource("7_nniao")
+stream_5/stream = ExtResource("8_ct5x0")
 
 [node name="DialogueUI" type="Control"]
 layout_mode = 3
@@ -48,5 +62,5 @@ scale = Vector2(0.3, 0.3)
 text = "Press enter to continue"
 
 [node name="Sfx_speaking" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_u0wqm")
+stream = SubResource("AudioStreamRandomizer_bf2rb")
 volume_db = -16.0
