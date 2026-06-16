@@ -18,7 +18,6 @@ offset_top = -120.0
 offset_right = 53.599976
 offset_bottom = -43.0
 texture = ExtResource("1_km8cd")
-metadata/_edit_group_ = true
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
@@ -37,6 +36,16 @@ offset_right = 246.49997
 offset_bottom = 156.0
 scale = Vector2(0.4, 0.4)
 text = "chatting..."
+
+[node name="Enter to skip" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.000004
+offset_top = 60.0
+offset_right = 107.33334
+offset_bottom = 113.33334
+scale = Vector2(0.3, 0.3)
+text = "Press enter to continue"
 
 [node name="Sfx_speaking" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_u0wqm")
