@@ -1,0 +1,49 @@
+extends Control
+
+signal dialogue_finished
+
+@export_file("*.json") var dialogue_file
+@onready var sfx_speaking: AudioStreamPlayer2D = $Sfx_speaking
+#change the vaiable for different sfx
+
+
+var dialogue = []
+var current_dialogue_id = 0
+var dialogue_active = false
+
+func _ready() -> void:
+	$NinePatchRect.visible = false
+	
+func start():
+	if dialogue_active:
+		return
+	dialogue_active = true
+	$NinePatchRect.visible = true
+	dialogue = load_dialogue()
+	current_dialogue_id = -1
+	next_script()
+	
+func load_dialogue():
+	var dialogue_file = FileAccess.open("res://dialogue/gigachad_dialogue1.json", FileAccess.READ)
+	var content = JSON.parse_string(dialogue_file.get_as_text())
+	return content
+	#change file location for chatbox messages
+	
+	
+func _input(event: InputEvent) -> void:
+	if !dialogue_active:
+		return
+	if event.is_action_pressed("ui_accept"):
+		next_script()
+	
+func next_script():
+	current_dialogue_id += 1
+	sfx_speaking.play()
+	if current_dialogue_id >= len(dialogue):
+		dialogue_active = false
+		$NinePatchRect.visible = false
+		emit_signal("dialogue_finished")
+		return
+	
+	$NinePatchRect/Name.text = dialogue[current_dialogue_id]["name"]
+	$NinePatchRect/Text.text = dialogue[current_dialogue_id]["text"]
