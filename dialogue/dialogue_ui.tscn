@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfrhstdfuipsr"]
+[gd_scene load_steps=4 format=3 uid="uid://cfrhstdfuipsr"]
 
 [ext_resource type="Script" uid="uid://cpflqcnmbay5t" path="res://dialogue/dialogueplayer.gd" id="1_8lmct"]
 [ext_resource type="Texture2D" uid="uid://bonamhw64ew2x" path="res://images/chat_box.png" id="1_km8cd"]
+[ext_resource type="AudioStream" uid="uid://chy2g1upgycl5" path="res://Audio/gigachad_theme_remix.mp3" id="3_u0wqm"]
 
 [node name="DialogueUI" type="Control"]
 layout_mode = 3
@@ -36,3 +37,7 @@ offset_right = 246.49997
 offset_bottom = 156.0
 scale = Vector2(0.4, 0.4)
 text = "chatting..."
+
+[node name="Sfx_speaking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_u0wqm")
+volume_db = -16.0
