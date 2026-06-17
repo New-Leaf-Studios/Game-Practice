@@ -14,7 +14,7 @@ var current_turn = TurnState.PLAYER_TURN
 
 var testing_enemy_start: Vector2i = Vector2i(12, 0)
 
-func _ready() -> void:
+func _ready() -> void: #
 	$Fighters.add_child(player)
 	$Fighters.add_child(enemy)
 	enemy.position = grid.map_to_local(testing_enemy_start)
