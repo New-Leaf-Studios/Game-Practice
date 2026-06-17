@@ -1,0 +1,121 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd2ew5dspr1pr"]
+
+[ext_resource type="Texture2D" path="res://images/chat_box.png" id="1_t1sy6"]
+
+[node name="npc_quest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="quest1_ui" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -52.0
+offset_top = -120.0
+offset_right = 53.599976
+offset_bottom = -43.0
+texture = ExtResource("1_t1sy6")
+
+[node name="Name" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 195.0
+offset_bottom = 29.0
+scale = Vector2(0.5, 0.5)
+text = "GigaChad's Quest"
+
+[node name="Text" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 246.49997
+offset_bottom = 156.0
+scale = Vector2(0.4, 0.4)
+text = "chatting..."
+
+[node name="Enter to skip" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.000004
+offset_top = 60.0
+offset_right = 107.33334
+offset_bottom = 113.33334
+scale = Vector2(0.3, 0.3)
+text = "Press enter to continue"
+
+[node name="no_quest" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -52.0
+offset_top = -120.0
+offset_right = 53.599976
+offset_bottom = -43.0
+texture = ExtResource("1_t1sy6")
+
+[node name="Name" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 195.0
+offset_bottom = 29.0
+scale = Vector2(0.5, 0.5)
+text = "GigaChad's Quest"
+
+[node name="Text" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 246.49997
+offset_bottom = 156.0
+scale = Vector2(0.4, 0.4)
+text = "No current quest, please return later"
+
+[node name="Enter to skip" type="RichTextLabel" parent="no_quest"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.000004
+offset_top = 60.0
+offset_right = 107.33334
+offset_bottom = 113.33334
+scale = Vector2(0.3, 0.3)
+text = "Press enter to continue"
+
+[node name="finished_quest" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -52.0
+offset_top = -120.0
+offset_right = 53.599976
+offset_bottom = -43.0
+texture = ExtResource("1_t1sy6")
+
+[node name="Name" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 195.0
+offset_bottom = 29.0
+scale = Vector2(0.5, 0.5)
+text = "GigaChad"
+
+[node name="Text" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 246.49997
+offset_bottom = 156.0
+scale = Vector2(0.4, 0.4)
+text = "Thank you, now I can return to my 1000 year mewing streak"
+
+[node name="Enter to skip" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.000004
+offset_top = 60.0
+offset_right = 107.33334
+offset_bottom = 113.33334
+scale = Vector2(0.3, 0.3)
+text = "Press enter to continue"

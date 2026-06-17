@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://be8qbmt0fe144"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" path="res://images/game sprite test.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" path="res://images/TTdown.png" id="2_vgqql"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkybt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vgqql")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6t5aa")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vgqql")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
+size = Vector2(19, 60.5)
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_cvnsp")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(283, 320)
+scale = Vector2(0.145, 0.145)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
+[node name="TestingTimothy" type="AnimatedSprite2D" parent="."]
+position = Vector2(286, 321)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"up"
+
+[node name="PlayerHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(283.5, 321.75)
+shape = SubResource("RectangleShape2D_6t5aa")
